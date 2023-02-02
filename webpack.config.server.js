@@ -1,4 +1,4 @@
-// Server-side Webpack configuration
+// Server-side Webpack configuration.
 
 const path = require("path");
 const webpack = require("webpack");
