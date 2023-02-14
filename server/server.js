@@ -12,6 +12,8 @@ import express from "express";
 import devBundle from "./devBundle"; //This line is only meant for development mode. Comment out when building the application code for production.
 import path from "./path";
 import template from "./../template";
+import { MongoClient } from 'mongodb'
+
 
 const app = express();  // I will use this app to build the rest of the Node server application.
 devBundle.compile(app);  //This line is only meant for development mode. Comment out when building the application code for production.
@@ -29,4 +31,13 @@ app.listen(port, function onStart(err) {
         console.log(err);
     }
     console.info("server started on port %s. ", port)
-})
+});
+
+const url = process.env.MONGDB_URL || 
+    'mongodb://localhost:27017/mernSimpleSetuo';
+// MongoClient is the driver that connects to the running MongoDB instance using its URL. 
+// It allows us to implement the database-related code in the backend
+MongoClient.connect(url, (err, db) => { .
+    console.log("connected successfully to mongodb server")
+    db.close()
+});
