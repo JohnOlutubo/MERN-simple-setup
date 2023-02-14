@@ -10,6 +10,11 @@ request is made to the root route.
 
 import express from "express";
 import devBundle from "./devBundle"; //This line is only meant for development mode. Comment out when building the application code for production.
+import path from "./path";
+
 
 const app = express();  // I will use this app to build the rest of the Node server application.
 devBundle.compile(app);  //This line is only meant for development mode. Comment out when building the application code for production.
+
+const CURRENT_WORKING_DIR = process.cwd();
+app.use('dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist'))); 
