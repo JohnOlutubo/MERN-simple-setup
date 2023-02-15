@@ -2,12 +2,12 @@
 // while in development mode
 
 import webpack from 'webpack'
-import WebpackHotMiddleware from 'webpack-hot-middleware'
+import webpackMiddleware from 'webpack-dev-middleware'
 import WebpackHotMiddleware from 'webpack-hot-middleware'
 import webpackConfig from './../webpack.config.client.js'
 
 const compile = (app) => {
-    if(process.env.NODE_ENV === 'development') {
+    if(process.env.NODE_ENV == 'development') {
         const compiler = webpack(webpackConfig)
         const middleware = webpackMiddleware(compiler, {
             publicPath: webpackConfig.output.publicPath
