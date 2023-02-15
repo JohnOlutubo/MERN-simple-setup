@@ -34,10 +34,10 @@ app.listen(port, function onStart(err) {
 });
 
 const url = process.env.MONGDB_URL || 
-    'mongodb://localhost:27017/mernSimpleSetuo';
+    'mongodb://localhost:27017/mernSimpleSetup';
 // MongoClient is the driver that connects to the running MongoDB instance using its URL. 
 // It allows us to implement the database-related code in the backend
-MongoClient.connect(url, (err, db) => { .
+MongoClient.connect(url, (err, db) => {
     console.log("connected successfully to mongodb server")
     db.close()
 });
